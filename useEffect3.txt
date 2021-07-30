@@ -1,0 +1,17 @@
+import React, { useEffect, useState } from 'react';
+const App=()=>{
+    useEffect(()=>{
+        alert("I am Clicked")},[])
+    const [num,setnum]= useState(0)
+    const [nums,setnums]= useState(0)
+    return (<>
+    <button onClick={()=>{
+    setnum(num+1);
+     } }>Click Me {num}</button>
+     <br/>
+     <button onClick={()=>{
+    setnums(nums+1);
+     } }>Click Me {nums}</button>
+     </>);
+}
+export default App;

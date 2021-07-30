@@ -1,0 +1,44 @@
+//App.js
+import React, { createContext } from 'react';
+import ComA from './ComA';
+const FirstName = createContext();
+const App=()=>
+{
+return (
+<>
+    <FirstName.Provider value='Gaurav'>
+        <ComA/>
+    </FirstName.Provider>
+
+</>
+);
+}
+export default App;
+export { FirstName };
+//ComA.jsx
+import React from 'react';
+import ComB from './ComB';
+const ComA= ()=>{
+    return <ComB/>
+}
+export default ComA;
+//ComB.jsx
+import React from 'react';
+import ComC from './ComC';
+const ComB=()=>{
+    return <ComC/>
+}
+export default ComB;
+//ComC.jsx
+import React from 'react';
+import { FirstName } from './App';
+const ComC= ()=>{
+    return (<>
+        <FirstName.Consumer >
+        {(fname)=>{
+            return <h1>My name is {fname}</h1>;
+        }}
+        </FirstName.Consumer>
+    </>);
+}
+export default ComC;

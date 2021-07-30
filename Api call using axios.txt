@@ -1,0 +1,30 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+const ComA = ()=>
+{   const [num ,Setnum]= useState();
+    const [name,Setname]= useState();
+    const [moves,Setmoves]= useState();
+    useEffect(()=>{
+       async function getData (){
+           const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${num}`);
+           Setname(res.data.name);
+           Setmoves(res.data.moves.length);
+
+       }
+       getData();
+    });
+return (<>
+     <h1>Pokemon Name is <span style={{color:"red"}}>{name}</span></h1>
+     <h2>{name} moves is  <span style={{color:"red"}}>{moves}</span></h2>
+    <h1> You choose  this  <span style={{color:"red"}}>{num}</span>option</h1>
+    <select value={num} onChange={ (event)=>{
+     Setnum(event.target.value);
+        }}>
+        <option value='1' >1</option>
+        <option value='25'>25</option>
+        <option value='4'>4</option>
+        <option value='5'>5</option>
+    </select>
+</>);
+}
+export default ComA;

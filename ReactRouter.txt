@@ -1,0 +1,49 @@
+//About.jsx
+import React from 'react';
+const About = ()=>
+{
+ return <h1>This is the About Page</h1>
+}
+export default About;
+//Contact.jsx
+import React from 'react';
+const Contact = ()=>
+{
+ return <h1>This is the Contact Page</h1>
+}
+export default Contact;
+
+//Error.jsx
+import React from 'react';
+const Error = ()=>
+{
+ return <h1> Opps Page Not found</h1>
+}
+export default Error;
+//App.js
+import React from'react';
+import { Route,Switch } from 'react-router-dom';
+import About  from './About';
+import Contact from './Contact';
+import Error from './Error';
+const App= ()=>{
+return (<>
+<Switch>
+    <Route exact path='/' component={About} />
+    <Route exact path='/contact' component={Contact} />
+    <Route component={Error}/>
+</Switch>
+</>);
+}
+export default App;
+//index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter} from "react-router-dom";
+import App from './App';
+
+ReactDOM.render(
+<BrowserRouter><App/></BrowserRouter>
+
+,document.getElementById('root'));
+
